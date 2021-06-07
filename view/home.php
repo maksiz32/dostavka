@@ -62,13 +62,13 @@
                 <span>
                     Сортировка:
                 </span>
-                <a href="/?controller=home&sort=name" class="mainsort-unit">
+                <a href="/?controller=home&sort=username" class="mainsort-unit">
                     по Имени Пользователя
                 </a>
-                <a href="/?controller=home&sort=mail" class="mainsort-unit">
+                <a href="/?controller=home&sort=email" class="mainsort-unit">
                     по Email
                 </a>
-                <a href="/?controller=home&sort=done" class="mainsort-unit">
+                <a href="/?controller=home&sort=isDone" class="mainsort-unit">
                     по Выполнению
                 </a>
             </section>

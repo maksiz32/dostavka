@@ -21,14 +21,14 @@ class TaskProvider {
     public function getParams(string $sort): string
     {
         switch ($sort) {
-            case 'mail':
-                $param = 'email';
+            case 'email':
+                $_SESSION['sort'] = $param = 'email';
                 break;
-            case 'done':
-                $param = 'isDone';
+            case 'isDone':
+                $_SESSION['sort'] = $param = 'isDone';
                 break;
             default:
-                $param = 'username';
+                $_SESSION['sort'] = $param = 'username';
         }
         return $param;
     }

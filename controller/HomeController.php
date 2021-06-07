@@ -8,7 +8,7 @@ if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
 }
 
-$username = $user ? $user : null;
+$username = $user ?? $user;
 
 $pageName = 'Главная страница';
 
@@ -22,12 +22,19 @@ if (isset($_GET['action']) && $_GET['action'] === 'newtask') {
     header('Location: /?controller=home');
 }
 
-$sort = (isset($_GET['sort'])) ? $_GET['sort'] : 'username';
 $curPage = (isset($_GET['page'])) ? $_GET['page'] : 1;
 
 $res = new TaskProvider($pdo);
+ if(!isset($_SESSION['sort']) && $_GET['sort']) {
+    $param = $res->getParams('h');
+}
+if(isset($_SESSION['sort'])) {
+    $param = $res->getParams($_SESSION['sort']);
+}
+if(isset($_GET['sort'])) {
+    $param = $res->getParams($_GET['sort']);
+}
 
-$param = $res->getParams($sort);
 $limit = 3;
 $countItems = $res->getCountItems();
 
