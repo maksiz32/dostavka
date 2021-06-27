@@ -57,7 +57,7 @@ class TaskProvider {
 
     public function addTask(): bool {
         ['username' => $username, 'email' => $email, 'newtask' => $newtask] = $_POST;
-        $request = $_POST['newtask'];
+        // $request = $_POST['newtask'];
         
         if ($username !== '' && $email !== "" && $newtask !== "") {
             $task = new Task($username, $email, $newtask);
