@@ -24,8 +24,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'newtask') {
 
 $curPage = (isset($_GET['page'])) ? $_GET['page'] : 1;
 
+$param = $_GET['sort'] ?? 'username';
 $res = new TaskProvider($pdo);
- if(!isset($_SESSION['sort']) && $_GET['sort']) {
+if(!isset($_SESSION['sort']) && $param) {
     $param = $res->getParams('h');
 }
 if(isset($_SESSION['sort'])) {

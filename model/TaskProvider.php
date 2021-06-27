@@ -33,7 +33,7 @@ class TaskProvider {
         return $param;
     }
 
-    public function getTasksList(string $sort, int $offset, ?int $limit = null): array {
+    public function getTasksList(string $sort = 'username', int $offset, ?int $limit = null): array {
         $arr = [];
         if(!$limit) {
             $statement = $this->pdo->query("SELECT * FROM `tasks` ORDER BY {$sort}");
